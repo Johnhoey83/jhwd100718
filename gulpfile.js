@@ -150,8 +150,7 @@ gulp.task( 'watch', function() {
     //livereload.changed( file );
   } );
 } );
- 
- 
+
 gulp.task( 'default', ['watch'], function() {
  // Does nothing in this task, just triggers the dependent 'watch'
 } );
