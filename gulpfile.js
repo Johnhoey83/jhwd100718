@@ -16,7 +16,7 @@ var gulp = require( 'gulp' ),
   zip = require('gulp-zip');
 
 var config = {
-     bowerDir: './bower_components' 
+    bowerDir: './bower_components'
 }
  
 // Default error handler
@@ -48,9 +48,9 @@ gulp.task('bower', function() {
     .pipe(gulp.dest(config.bowerDir))
 });
 
-gulp.task('icons', function() { 
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
-        .pipe(gulp.dest('./fonts')); 
+gulp.task('icons', function() {
+    return gulp.src(config.bowerDir + '/fontawesome/web-fonts-with-css/webfonts/**.*')
+        .pipe(gulp.dest('./fonts'));
 });
  
 // Jshint outputs any kind of javascript problems you might have

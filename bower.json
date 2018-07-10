@@ -1,7 +1,7 @@
 {
   "name": "strapped",
   "version": "1.0.0",
-  "homepage": "http://localhost:3000/",
+  "homepage": "",
   "description": "Bootstrap 3 WordPress theme",
   "moduleType": [
     "node"
