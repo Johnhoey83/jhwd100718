@@ -120,6 +120,17 @@ if ( !function_exists( 'strapped_the_custom_logo' ) ) :
 	endif;
 
 /**
+ * Editing the Tag Widget
+ */
+function my_widget_tag_cloud_args( $args ) {
+	$args['largest'] = 11;
+	$args['smallest'] = 11;
+	$args['unit'] = 'px';
+	return $args;
+  }
+  add_filter( 'widget_tag_cloud_args', 'my_widget_tag_cloud_args' );
+
+/**
  * Widgets
  */
 require get_template_directory() . '/inc/widgets.php';
