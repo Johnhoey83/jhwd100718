@@ -27,14 +27,15 @@
 	margin: 0 0 1.5em;
 }
 
-.site-content {
-	@include make-row();
-  
-	.content-area {
-	  @include make-md-column(9);
-	}
-  
-	.widget-area {
-	  @include make-md-column(3);
-	}
+.site-content { 
+  @include make-row();  
+  word-break: break-word; 
+
+  .content-area {
+    @include make-md-column(9);
   }
+
+  .widget-area {
+    @include make-md-column(3);
+  }
+}
