@@ -6005,8 +6005,8 @@ button.close {
   margin-left: -15px;
   margin-right: -15px;
   content: "";
-  display: table;
-  table-layout: fixed;
+  /*display: table;
+  table-layout: fixed;*/
   word-break: break-word; }
   .site-content .content-area {
     position: relative;
@@ -6042,6 +6042,15 @@ button.close {
 
 .bypostauthor {
   display: block; }
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background: #f8f8f8;
+  color: #a5a5a5; }
+  .site-footer .site-info {
+    margin: 20px 0; }
 
 /*--------------------------------------------------------------
 # Media
@@ -6111,3 +6120,18 @@ img {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+# Post Navigation
+--------------------------------------------------------------*/
+.posts-navigation,
+.post-navigation {
+  margin: 30px 0; }
+  .posts-navigation .nav-previous,
+  .posts-navigation .nav-next,
+  .post-navigation .nav-previous,
+  .post-navigation .nav-next {
+    display: inline-block; }
+  .posts-navigation .nav-previous,
+  .post-navigation .nav-previous {
+    float: right; }
