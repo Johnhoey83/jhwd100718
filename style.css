@@ -5981,7 +5981,9 @@ button.close {
   content: "";
   display: table;
   table-layout: fixed;
-  word-break: break-word; }
+  word-break: break-word;
+  display: inline;
+  table-layout: auto; }
   .site-content .content-area {
     position: relative;
     min-height: 1px;
