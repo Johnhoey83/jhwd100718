@@ -164,3 +164,11 @@ require get_template_directory() . '/inc/jetpack.php';
  * Bootstrap Walker Menu
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
+
+/**
+ * Custom Post Types
+ */
+require get_template_directory() . '/inc/post-types/CPT.php';
+
+//Portfolio Custom Post Type
+require get_template_directory() . '/inc/post-types/register-portfolio.php';
