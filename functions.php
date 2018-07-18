@@ -45,6 +45,9 @@ function strapped_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	// Add custom post types
+	add_post_type_support( 'news', 'thumbnails' );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'strapped' ),
@@ -172,3 +175,6 @@ require get_template_directory() . '/inc/post-types/CPT.php';
 
 //Portfolio Custom Post Type
 require get_template_directory() . '/inc/post-types/register-portfolio.php';
+
+//Portfolio Custom Post Type
+require get_template_directory() . '/inc/post-types/register-news.php';

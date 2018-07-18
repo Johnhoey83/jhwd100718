@@ -23,6 +23,26 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 .single-portfolio .hentry {
   border-bottom: 0; }
 
+.news-item {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+/*--------------------------------------------------------------
+Portfolio
+--------------------------------------------------------------*/
+.portfolio img.wp-post-image {
+  margin-bottom: 0;
+  height: auto; }
+
+.portfolio-item {
+  margin: 10px; }
+
+.portfolio .thumbnail {
+  margin-bottom: 5px; }
+
+.portfolio h4 {
+  margin-top: 5px; }
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5955,14 +5975,13 @@ button.close {
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
-.sticky {
-  display: block; }
-
 .hentry {
-  margin: 0 0 1.5em; }
+  margin: 0 0 1.8em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1.8em; }
 
 .byline,
-.updated:not(.published) {
+.updated {
   display: none; }
 
 .single .byline,

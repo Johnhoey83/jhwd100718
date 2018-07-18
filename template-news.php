@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Portfolio
+ * Template Name: News
  *
  */
 
@@ -10,11 +10,11 @@ get_header(); ?>
 	<div class="row">
 
 	<div id="primary" class="col-md-12 col-lg-12">
-		<main id="main" class="site-main portfolio" role="main">
+		<main id="main" class="site-main news" role="main">
 		
 			<?php 
 			// the query
-			$the_query = new WP_Query( array('post_type' => 'portfolio') ); ?>
+			$the_query = new WP_Query( array('post_type' => 'news') ); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
 
@@ -24,12 +24,12 @@ get_header(); ?>
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 					<div class="col-sm-6 col-md-4">
-						<div class="portfolio-item">
+						<div class="news-item">
 							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 							<?php the_post_thumbnail(); ?>
 							</a>
 							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary">View Project</a>
+							<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
 						</div>
 					</div>
 					<?php endwhile; ?>

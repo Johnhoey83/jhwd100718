@@ -24,6 +24,31 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	border-bottom: 0;
 }
 
+.news-item {
+	margin-top: 10px;
+	margin-bottom: 10px;
+  }
+
+/*--------------------------------------------------------------
+Portfolio
+--------------------------------------------------------------*/
+.portfolio img.wp-post-image {
+    margin-bottom: 0;
+    height: auto;  
+}
+
+.portfolio-item {
+	margin: 10px;
+}
+
+.portfolio .thumbnail {
+	margin-bottom: 5px;
+}
+
+.portfolio h4 {
+	margin-top: 5px;
+}
+
 @import "vars/variables-site";
 @import "bootstrap";
 
