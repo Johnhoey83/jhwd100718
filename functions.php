@@ -104,6 +104,27 @@ function strapped_content_width() {
 }
 add_action( 'after_setup_theme', 'strapped_content_width', 0 );
 
+/* *
+*@title: Add Class to Next and Previous post_link
+*@link: http://extracatchy.net/add-class-next-previous-post_link/
+*/
+function add_class_next_post_link($html){
+    $html = str_replace('<a','<a class="next-nav"',$html );
+    return $html;
+}
+add_filter('next_post_link','add_class_next_post_link',10,1);
+function add_class_previous_post_link($html){
+    $html = str_replace('<a','<a class="prev-nav" ',$html);
+    return $html;
+}
+add_filter('previous_post_link','add_class_previous_post_link',10,1);
+
+//enqueues our external font awesome stylesheet
+function enqueue_our_required_stylesheets(){
+	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+}
+add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
+
 
 
 if ( !function_exists( 'strapped_the_custom_logo' ) ) :

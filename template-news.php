@@ -26,9 +26,10 @@ get_header(); ?>
 					<div class="col-sm-6 col-md-4">
 						<div class="news-item">
 							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							<?php the_post_thumbnail(); ?>
+							<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full', 'title' => 'Feature image']); ?>
 							</a>
 							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<?php the_excerpt(); ?>
 							<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
 						</div>
 					</div>

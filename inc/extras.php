@@ -37,3 +37,15 @@ function custom_edit_post_link($output) {
 	return $output;
    }
    add_filter('edit_post_link', 'custom_edit_post_link');
+
+   /**
+ * Custom Edit Button
+ */
+function custom_edit_nav_link($output) {
+
+	$output = str_replace('class="prev-nav"', 'class="prev-nav btn btn-outline-primary btn-xs"', $output);
+	return $output;
+   }
+   add_filter('edit_nav_link', 'custom_edit_nav_link');
+
+ 
