@@ -27,6 +27,12 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   margin-top: 10px;
   margin-bottom: 10px; }
 
+span.cat-links, span.comments-link, span.edit-link {
+  padding-left: 7px; }
+
+footer.entry-footer {
+  margin-top: 10px; }
+
 /*--------------------------------------------------------------
 Portfolio
 --------------------------------------------------------------*/
@@ -6049,6 +6055,20 @@ button.close {
   color: #a5a5a5; }
   .site-footer .site-info {
     margin: 20px 0; }
+
+.footer-menu {
+  margin-left: 0;
+  padding: 0 0 30px 0;
+  margin-top: 20px; }
+  .footer-menu li {
+    display: inline;
+    list-style-type: none; }
+  .footer-menu li a {
+    border-left: 1px solid #ddd;
+    padding: 0 8px; }
+  .footer-menu > li:first-child > a {
+    border-left: none;
+    padding: 0 8px 0 0; }
 
 /*--------------------------------------------------------------
 # Media

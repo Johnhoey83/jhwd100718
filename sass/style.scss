@@ -20,6 +20,8 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
+
+
 .single-portfolio .hentry {
 	border-bottom: 0;
 }
@@ -28,6 +30,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	margin-top: 10px;
 	margin-bottom: 10px;
   }
+
+  span.cat-links, span.comments-link, span.edit-link {
+    padding-left: 7px;
+} 
+
+footer.entry-footer {
+    margin-top: 10px;
+}
 
 /*--------------------------------------------------------------
 Portfolio

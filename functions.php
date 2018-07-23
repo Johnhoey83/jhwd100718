@@ -38,6 +38,12 @@ function strapped_setup() {
 	// Add logo upload in customizer WordPress 4.5+
 	add_theme_support( 'custom-logo' );
 
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'primary' => __( 'Primary Menu', 'bootstrapwp' ),
+        'footer-menu' => __( 'Footer Menu', 'bootstrapwp' ),
+	) );
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *

@@ -19,7 +19,7 @@ get_header(); ?>
 			<?php if ( $the_query->have_posts() ) : ?>
 
 				<div class="row">
-
+						
 					<!-- the loop -->
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
