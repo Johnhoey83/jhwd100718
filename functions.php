@@ -205,3 +205,6 @@ require get_template_directory() . '/inc/post-types/register-portfolio.php';
 
 //Portfolio Custom Post Type
 require get_template_directory() . '/inc/post-types/register-news.php';
+
+//Portfolio Custom Post Type
+require get_template_directory() . '/inc/post-types/register-services.php';

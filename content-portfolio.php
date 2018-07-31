@@ -14,11 +14,13 @@
 			<div class="col-md-6 col-lg-6">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail(); ?>
+					<?php the_post_navigation(); ?>
 				<?php endif; ?>
 			</div>
 
 			<div class="col-md-6 col-lg-6">
 				<?php the_content(); ?>
+				
 			</div>
 
 		</div> <!-- .row -->
