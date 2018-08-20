@@ -4,10 +4,13 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Strapped
+ * @package jhwd
  */
 
+
 get_header(); ?>
+
+
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-Theme Name: Strapped
+Theme Name: jhwd
 Theme URI: http://underscores.me/
 Author: Brad Williams
 Author URI: http://braginteractive.com
@@ -8,18 +8,39 @@ Description: Bootstrap 3 Sass
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: strapped
+Text Domain: jhwd
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Strapped is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
+jhwd is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
+p {
+  color: green; }
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0; }
+
+.container .jumbotron, .container-fluid .jumbotron {
+  background-image: url("wp-content/uploads/2018/08/business-plan-2061634_1920.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 400px; }
+  .container .jumbotron h1, .container-fluid .jumbotron h1 {
+    padding-top: 50px;
+    color: blue; }
+
+.navbar {
+  margin-bottom: 0; }
+
 .single-portfolio .hentry {
   border-bottom: 0; }
 
@@ -6896,7 +6917,8 @@ button.close {
 --------------------------------------------------------------*/
 .site-footer {
   background: #f8f8f8;
-  color: #a5a5a5; }
+  color: #a5a5a5;
+  margin-top: 50px; }
   .site-footer .site-info {
     margin: 20px 0; }
 

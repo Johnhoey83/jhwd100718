@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Strapped
+ * @package jhwd
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -33,7 +33,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <?php strapped_the_custom_logo(); ?>
+            <?php jhwd_the_custom_logo(); ?>
              
           </div>
 

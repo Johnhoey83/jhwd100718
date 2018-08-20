@@ -1,9 +1,9 @@
 <?php
 
-$portfolio = new CPT(array(
+$news = new CPT(array(
     'post_type_name' => 'news',
-    'singular' => __('News', 'bootstrapwp'),
-    'plural' => __('News', 'bootstrapwp'),
+    'singular' => __('News', 'jhwd'),
+    'plural' => __('News', 'jhwd'),
     'slug' => 'news'
 ),
 	array(
@@ -11,9 +11,9 @@ $portfolio = new CPT(array(
     'menu_icon' => 'dashicons-testimonial'
 ));
 
-$portfolio->register_taxonomy(array(
+$news->register_taxonomy(array(
     'taxonomy_name' => 'news_tags',
-    'singular' => __('News Tag', 'bootstrapwp'),
-    'plural' => __('News Tags', 'bootstrapwp'),
+    'singular' => __('News Tag', 'jhwd'),
+    'plural' => __('News Tags', 'jhwd'),
     'slug' => 'news-tag'
 ));

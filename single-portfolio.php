@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single portfolio items.
  *
- * @package bootstrapwp
+ * @package jhwd
  */
 
 get_header(); ?>

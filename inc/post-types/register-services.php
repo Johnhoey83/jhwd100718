@@ -1,19 +1,21 @@
 <?php
 
-$portfolio = new CPT(array(
+$services = new CPT(array(
     'post_type_name' => 'Services',
-    'singular' => __('Services', 'bootstrapwp'),
-    'plural' => __('Services', 'bootstrapwp'),
+    'singular' => __('Service', 'jhwd'),
+    'plural' => __('Services', 'jhwd'),
     'slug' => 'services'
 ),
 	array(
-    'supports' => array('title', 'editor', 'thumbnail', 'comments'),
-    'menu_icon' => 'dashicons-testimonial'
+    'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt','page-attributes'),
+    'menu_icon' => 'dashicons-testimonial',
+    'hierarchical'     => false,
+    'capability_type' => 'page'
 ));
 
-$portfolio->register_taxonomy(array(
+$services->register_taxonomy(array(
     'taxonomy_name' => 'services_tags',
-    'singular' => __('Services Tag', 'bootstrapwp'),
-    'plural' => __('Services Tags', 'bootstrapwp'),
+    'singular' => __('Service Tag', 'jhwd'),
+    'plural' => __('Services Tags', 'jhwd'),
     'slug' => 'services-tag'
 ));

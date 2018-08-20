@@ -2,8 +2,8 @@
 
 $portfolio = new CPT(array(
     'post_type_name' => 'portfolio',
-    'singular' => __('Portfolio', 'bootstrapwp'),
-    'plural' => __('Portfolio', 'bootstrapwp'),
+    'singular' => __('Portfolio', 'jhwd'),
+    'plural' => __('Portfolio', 'jhwd'),
     'slug' => 'portfolio'
 ),
 	array(
@@ -13,7 +13,7 @@ $portfolio = new CPT(array(
 
 $portfolio->register_taxonomy(array(
     'taxonomy_name' => 'portfolio_tags',
-    'singular' => __('Portfolio Tag', 'bootstrapwp'),
-    'plural' => __('Portfolio Tags', 'bootstrapwp'),
+    'singular' => __('Portfolio Tag', 'jhwd'),
+    'plural' => __('Portfolio Tags', 'jhwd'),
     'slug' => 'portfolio-tag'
 ));

@@ -1,13 +1,13 @@
 <?php
 /**
- * Strapped functions and definitions.
+ * jhwd functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Strapped
+ * @package jhwd
  */
 
-if ( ! function_exists( 'strapped_setup' ) ) :
+if ( ! function_exists( 'jhwd_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'strapped_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function strapped_setup() {
+function jhwd_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Strapped, use a find and replace
-	 * to change 'strapped' to the name of your theme in all the template files.
+	 * If you're building a theme based on jhwd, use a find and replace
+	 * to change 'jhwd' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'strapped', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'jhwd', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -38,10 +38,13 @@ function strapped_setup() {
 	// Add logo upload in customizer WordPress 4.5+
 	add_theme_support( 'custom-logo' );
 
+	// Add post thumbnails to banner
+	add_theme_support('post-thumbnails');
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'bootstrapwp' ),
-        'footer-menu' => __( 'Footer Menu', 'bootstrapwp' ),
+		'primary' => __( 'Primary Menu', 'jhwd' ),
+        'footer-menu' => __( 'Footer Menu', 'jhwd' ),
 	) );
 
 	/*
@@ -56,7 +59,7 @@ function strapped_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary', 'strapped' ),
+		'primary' => esc_html__( 'Primary', 'jhwd' ),
 	) );
 
 	/*
@@ -84,13 +87,13 @@ function strapped_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'strapped_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'jhwd_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
 endif;
-add_action( 'after_setup_theme', 'strapped_setup' );
+add_action( 'after_setup_theme', 'jhwd_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -99,10 +102,10 @@ add_action( 'after_setup_theme', 'strapped_setup' );
  *
  * @global int $content_width
  */
-function strapped_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'strapped_content_width', 640 );
+function jhwd_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'jhwd_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'strapped_content_width', 0 );
+add_action( 'after_setup_theme', 'jhwd_content_width', 0 );
 
 /* *
 *@title: Add Class to Next and Previous post_link
@@ -127,14 +130,14 @@ add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
 
 
 
-if ( !function_exists( 'strapped_the_custom_logo' ) ) :
+if ( !function_exists( 'jhwd_the_custom_logo' ) ) :
 	/**
 	 * Displays the optional custom logo.
 	 *
 	 * Does nothing if the custom logo is not available.
 	 *
 	 */
-	function strapped_the_custom_logo() {
+	function jhwd_the_custom_logo() {
 		// Try to retrieve the Custom Logo
 		$output = '';
 		if (function_exists('get_custom_logo'))
@@ -208,3 +211,32 @@ require get_template_directory() . '/inc/post-types/register-news.php';
 
 //Portfolio Custom Post Type
 require get_template_directory() . '/inc/post-types/register-services.php';
+
+function register_services() {
+    $rewrite = array(
+        'slug'                  => 'Services',
+        'with_front'            => true,
+        'pages'                 => true,
+        'feeds'                 => true,
+    );
+    $args = array(
+        'label'                 => 'Services',
+        'description'           => 'Services Pages',
+        'supports'              => array('page-attributes'),
+        'taxonomies'            => array(),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-testimonial',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'rewrite'               => $rewrite,
+    );
+    register_post_type( 'services', $args );
+}
+add_action( 'init', 'register_services' );
+

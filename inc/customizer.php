@@ -1,8 +1,8 @@
 <?php
 /**
- * Strapped Theme Customizer.
+ * jhwd Theme Customizer.
  *
- * @package Strapped
+ * @package jhwd
  */
 
 /**
@@ -10,20 +10,20 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function strapped_customize_register( $wp_customize ) {
+function jhwd_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'strapped_customize_register' );
+add_action( 'customize_register', 'jhwd_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function strapped_customize_preview_js() {
-	wp_enqueue_script( 'strapped_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+function jhwd_customize_preview_js() {
+	wp_enqueue_script( 'jhwd_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
-add_action( 'customize_preview_init', 'strapped_customize_preview_js' );
+add_action( 'customize_preview_init', 'jhwd_customize_preview_js' );
 
 /**
  * Custom Read More Button
