@@ -21,7 +21,6 @@ get_header(); ?>
   </div>
 </div>
 
-
 <div class="container">
   <div class="row">
     <div class="col-md-4">
@@ -59,8 +58,8 @@ get_header(); ?>
     <?php endwhile; endif; ?>
   </div>
   <div class="col-md-5">
-    <img class="featurette-image img-fluid mx-auto" src="http://via.placeholder.com/500x350" alt="Generic placeholder image">
-  </div>
+    <img class="featurette-image img-fluid mx-auto home-feat-img" src="http://via.placeholder.com/500x350" alt="Generic placeholder image">
+</div>
 </div>
 
 <hr class="featurette-divider">

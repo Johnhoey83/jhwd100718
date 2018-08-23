@@ -1,14 +1,16 @@
 <?php
 
 $news = new CPT(array(
-    'post_type_name' => 'news',
+    'post_type_name' => 'News',
     'singular' => __('News', 'jhwd'),
     'plural' => __('News', 'jhwd'),
     'slug' => 'news'
 ),
 	array(
-    'supports' => array('title', 'editor', 'thumbnail', 'comments'),
-    'menu_icon' => 'dashicons-testimonial'
+    'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt','page-attributes'),
+    'menu_icon' => 'dashicons-testimonial',
+    'rewrite'           => array( 'slug' => 'news' )
+
 ));
 
 $news->register_taxonomy(array(
@@ -17,3 +19,4 @@ $news->register_taxonomy(array(
     'plural' => __('News Tags', 'jhwd'),
     'slug' => 'news-tag'
 ));
+

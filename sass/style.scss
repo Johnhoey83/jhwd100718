@@ -20,8 +20,8 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
-p {
-	color: green;
+img.featurette-image.img-fluid.mx-auto.home-feat-img {
+	margin-top: 10%;
 }
 
 
@@ -31,16 +31,13 @@ p {
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-	background-image: url("wp-content/uploads/2018/08/business-plan-2061634_1920.jpg");
-	background-position: center center; 
-	background-size: cover; 
-	background-repeat: no-repeat; 
-	background-attachment: fixed;
+	background-image: url("/wp-content/uploads/2018/08/technology-1095751_1920.jpg");
 	height: 400px;
+	color: #fff;
+	opacity: 0.9;
 
 	h1 {
 		padding-top: 50px;
-		color: blue;
 	}
 }
 

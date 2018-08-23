@@ -2,11 +2,10 @@
 var gulp = require( 'gulp' ),
   plumber = require( 'gulp-plumber' ),
   autoprefixer = require('gulp-autoprefixer'),
-  watch = require( 'gulp-watch' ),
-  livereload = require( 'gulp-livereload' ),
-  minifycss = require( 'gulp-minify-css' ),
-  jshint = require( 'gulp-jshint' ),
-  stylish = require( 'jshint-stylish' ),
+  watch = require('gulp-watch'),
+  livereload = require('gulp-livereload'),
+  jshint = require('gulp-jshint' ),
+  stylish = require('jshint-stylish' ),
   uglify = require( 'gulp-uglify' ),
   rename = require( 'gulp-rename' ),
   notify = require( 'gulp-notify' ),
@@ -14,11 +13,11 @@ var gulp = require( 'gulp' ),
   sass = require( 'gulp-sass' );
   imagemin = require('gulp-imagemin');
   bower = require('gulp-bower');
+  zip = require('gulp-zip');
 
 var config = {
-     bowerDir: './bower_components' 
+    bowerDir: './bower_components'
 }
- 
  
 // Default error handler
 var onError = function( err ) {
@@ -26,17 +25,33 @@ var onError = function( err ) {
   this.emit('end');
 }
 
+// Zip files up
+gulp.task('zip', function () {
+ return gulp.src([
+   '*',
+   './fonts/*',
+   './inc/*',
+   './js/**/*',
+   './languages/*',
+   './sass/**/*',
+   './template-parts/*',
+   '!bower_components',
+   '!node_modules',
+  ], {base: "."})
+  .pipe(zip('jhwd.zip'))
+  .pipe(gulp.dest('.'));
+});
+
 // Install all Bower components
 gulp.task('bower', function() {
   return bower()
     .pipe(gulp.dest(config.bowerDir))
 });
 
-gulp.task('icons', function() { 
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*') 
-        .pipe(gulp.dest('./fonts')); 
+gulp.task('icons', function() {
+    return gulp.src(config.bowerDir + '/fontawesome/web-fonts-with-css/webfonts/**.*')
+        .pipe(gulp.dest('./fonts'));
 });
- 
  
 // Jshint outputs any kind of javascript problems you might have
 // Only checks javascript files inside /src directory
@@ -46,7 +61,6 @@ gulp.task( 'jshint', function() {
     .pipe( jshint.reporter( stylish ) )
     .pipe( jshint.reporter( 'fail' ) );
 })
- 
  
 // Concatenates all files that it finds in the manifest
 // and creates two versions: normal and minified.
@@ -61,72 +75,82 @@ gulp.task( 'scripts', ['jshint'], function() {
     .pipe( uglify() )
     .pipe( rename( { suffix: '.min' } ) )
     .pipe( gulp.dest( './js/dist' ) )
-    .pipe(notify({ message: 'scripts task complete' }))
-    .pipe( livereload() );
+    .pipe( notify({ title: 'Javascript', message: 'scripts task complete' }))
+    //.pipe( livereload() );
 } );
  
-// As with javascripts this task creates two files, the regular and
-// the minified one. It automatically reloads browser as well.
+// Different options for the Sass tasks
 var options = {};
 options.sass = {
   errLogToConsole: true,
-  sourceMap: 'sass',
-  sourceComments: 'map',
-  precision: 10,
+  precision: 8,
+  noCache: true,
   //imagePath: 'assets/img',
   includePaths: [
     config.bowerDir + '/bootstrap-sass/assets/stylesheets',
     config.bowerDir + '/fontawesome/scss',
   ]
 };
-options.autoprefixer = {
-  map: true
-  //from: 'sass',
-  //to: 'asrp.min.css'
+
+options.sassmin = {
+  errLogToConsole: true,
+  precision: 8,
+  noCache: true,
+  outputStyle: 'compressed',
+  //imagePath: 'assets/img',
+  includePaths: [
+    config.bowerDir + '/bootstrap-sass/assets/stylesheets',
+    config.bowerDir + '/fontawesome/scss',
+  ]
 };
 
+// Sass
 gulp.task('sass', function() {
-  return gulp.src('./sass/style.scss')
-    .pipe( plumber( { errorHandler: onError } ) )
-    .pipe(sass(options.sass))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4',
-      options.autoprefixer
-      ))
-    .pipe( gulp.dest( '.' ) )
-    .pipe( minifycss() )
-    .pipe( rename( { suffix: '.min' } ) )
-    .pipe( gulp.dest( '.' ) )
-    .pipe(notify({ message: 'sass task complete' }))
-    .pipe( livereload() );
+    return gulp.src('./sass/style.scss')
+        .pipe(plumber())
+        .pipe(sass(options.sass))
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('.'))
+        .pipe(notify({ title: 'Sass', message: 'sass task complete'  }));
+});
+
+// Sass-min - Release build minifies CSS after compiling Sass
+gulp.task('sass-min', function() {
+    return gulp.src('./sass/style.scss')
+        .pipe(plumber())
+        .pipe(sass(options.sassmin))
+        .pipe(autoprefixer())
+        .pipe( rename( { suffix: '.min' } ) )
+        .pipe(gulp.dest('.'))
+        .pipe(notify({ title: 'Sass', message: 'sass-min task complete' }));
 });
 
 // Optimize Images
 gulp.task('images', function() {
   return gulp.src('./images/**/*')
-    .pipe(imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}]}))
-    .pipe(gulp.dest('./images'))
-    .pipe(notify({ message: 'Images task complete' }));
+    .pipe( imagemin({ progressive: true, svgoPlugins: [{removeViewBox: false}]}))
+    .pipe( gulp.dest('./images'))
+    .pipe( notify({ title: 'Images', message: 'images task complete' }));
 });
  
  
 // Start the livereload server and watch files for change
 gulp.task( 'watch', function() {
-  livereload.listen();
+  //livereload.listen();
  
   // don't listen to whole js folder, it'll create an infinite loop
   gulp.watch( [ './js/**/*.js', '!./js/dist/*.js' ], [ 'scripts' ] )
  
   gulp.watch( './sass/**/*.scss', ['sass'] );
 
-  gulp.watch('./images/**/*', ['images']);
+  gulp.watch( './images/**/*', ['images']);
  
   gulp.watch( './**/*.php' ).on( 'change', function( file ) {
     // reload browser whenever any PHP file changes
-    livereload.changed( file );
+    //livereload.changed( file );
   } );
 } );
- 
- 
-gulp.task( 'default', ['bower', 'icons'], function() {
+
+gulp.task( 'default', ['watch'], function() {
  // Does nothing in this task, just triggers the dependent 'watch'
 } );

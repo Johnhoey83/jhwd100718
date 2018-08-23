@@ -2,53 +2,52 @@
 /**
  * Template Name: Services
  *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package jhwd
  */
 
 get_header(); ?>
 
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Services</h1>
+    <p>Affordable. Practical. Hands On.</p>
+  </div>
+  </div>
+</div>
 <div class="container">
-	<div class="row">
+	<div id="primary" class="content-area" >
+		<main id="main" class="site-main" role="main">
 
-	<div id="primary" class="col-md-12 col-lg-12">
-		<main id="main" class="site-main news" role="main">
-		
-			<?php 
-			// the query
-			$the_query = new WP_Query( array('post_type' => 'services') ); ?>
+			<?php
+if ( function_exists('yoast_breadcrumb') ) {
+yoast_breadcrumb('
+<p id="breadcrumbs">','</p>
+');
+}
+?>
 
-			<?php if ( $the_query->have_posts() ) : ?>
+			<?php
+			while ( have_posts() ) : the_post();
 
-				<div class="row">
-						
-					<!-- the loop -->
-					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				get_template_part( 'template-parts/content', 'page' );
 
-					<div class="col-sm-6 col-md-4">
-						<div class="news-item">
-							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full', 'title' => 'Feature image']); ?>
-							</a>
-							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-							<?php the_excerpt(); ?>
-							<a href="<?php the_permalink(); ?>" class="btn btn-primary">Read More</a>
-						</div>
-					</div>
-					<?php endwhile; ?>
-					<!-- end of the loop -->
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
 
-				</div> <!-- .row -->
-				
+			endwhile; // End of the loop.
+			?>
 
-				<?php wp_reset_postdata(); ?>
-
-			<?php else : ?>
-				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-			<?php endif; ?>
-
-			
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	</div><!-- .row -->
-</div><!-- .container -->
-<?php get_footer(); ?>
+<?php
+get_footer();

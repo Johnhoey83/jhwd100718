@@ -23,7 +23,7 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header" role="banner">
     <nav role="navigation" id="navbar-main">
-      <div class="navbar navbar-inverse navbar-static-top">
+      <div class="navbar navbar-light" style="background-color: #e3f2fd;">
         <div class="container">
           <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
           <div class="navbar-header">

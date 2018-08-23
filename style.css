@@ -20,23 +20,20 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
-p {
-  color: green; }
+img.featurette-image.img-fluid.mx-auto.home-feat-img {
+  margin-top: 10%; }
 
 .container-fluid {
   padding-left: 0;
   padding-right: 0; }
 
 .container .jumbotron, .container-fluid .jumbotron {
-  background-image: url("wp-content/uploads/2018/08/business-plan-2061634_1920.jpg");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 400px; }
+  background-image: url("/wp-content/uploads/2018/08/technology-1095751_1920.jpg");
+  height: 400px;
+  color: #fff;
+  opacity: 0.9; }
   .container .jumbotron h1, .container-fluid .jumbotron h1 {
-    padding-top: 50px;
-    color: blue; }
+    padding-top: 50px; }
 
 .navbar {
   margin-bottom: 0; }
@@ -6885,7 +6882,7 @@ button.close {
     @media (min-width: 992px) {
       .site-content .content-area {
         float: left;
-        width: 75%; } }
+        width: 98%; } }
   .site-content .widget-area {
     position: relative;
     min-height: 1px;
