@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * Template Name: Homepage
+ * Template Name: News
  *
- * The template for displaying the homepage.
+ * The template for displaying the news page.
  *
  *
  * @package jhwd

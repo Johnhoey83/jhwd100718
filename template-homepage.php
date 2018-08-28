@@ -16,25 +16,25 @@ get_header(); ?>
   <div class="container">
     <h1 class="display-3">Keith Hoey &amp; Associates</h1>
     <p>Affordable. Practical. Hands On.</p>
-    <p><a class="btn btn-primary" href="#" role="button">Learn more &raquo;</a></p>
+   
   </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row">
+  <div class="row main-content">
     <div class="col-md-4">
       <h2>We offer </h2>
       <p>Affordable, practical, hands-on advice, help and support to you, the Business Leader, looking to improve your business performance through Operational Excellence and Lean Operations application.  </p>
       <p><a class="btn btn-info" href="#" role="button">Find out more</a></p>
     </div>
     <div class="col-md-4">
-      <h2>Our background </h2>
+    <h2>Our background </h2>
       <p>Over 30 years of experience in successfully designing, delivering and deploying Operational Excellence strategies in organisations large and small ranging across a variety of industries both in the UK and internationally. </p>
       <p><a class="btn btn-info" href="#" role="button">Find out more</a></p>
     </div>
     <div class="col-md-4">
-      <h2>We are </h2>
+    <h2>We are </h2>
       <p>Proven international specialists in the area of Operational Excellence. We have applied our expertise across a broad spectrum of industry sectors, providing education, training and practical implementation assistance.</p>
       <p><a class="btn btn-info" href="#" role="button">Find out more</a></p>
     </div>
@@ -58,7 +58,7 @@ get_header(); ?>
     <?php endwhile; endif; ?>
   </div>
   <div class="col-md-5">
-    <img class="featurette-image img-fluid mx-auto home-feat-img" src="http://via.placeholder.com/500x350" alt="Generic placeholder image">
+    <img class="featurette-image img-fluid mx-auto home-feat-img" src="/wp-content/uploads/2018/08/f1.png" alt="f1 car" style="width: 100%;">
 </div>
 </div>
 
@@ -67,7 +67,7 @@ get_header(); ?>
 
 </div>
 <div class="container">
-<h2>Latest News</h2>
+<h2 class="latest-news">Latest News</h2>
 
 <?php 
 			// the query

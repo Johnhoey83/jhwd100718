@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Services
+ * Template Name: Archive Page Custom
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -14,26 +14,13 @@
 
 get_header(); ?>
 
-<div class="jumbotron">
-  <div class="container">
-    <h1 class="display-3">Services</h1>
-    <p>Affordable. Practical. Hands On.</p>
-  </div>
-  </div>
-</div>
-<div class="container">
-	<div id="primary" class="content-area" >
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 			<?php
-			if ( function_exists('yoast_breadcrumb') ) {
-				yoast_breadcrumb('<p id="breadcrumbs">','</p>');
-}
-?>
-			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/content', 'page' );
+				get_template_part( 'template-parts/content', 'news' );
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :

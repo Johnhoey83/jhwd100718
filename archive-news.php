@@ -9,43 +9,63 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Latest News</h1>
+    <p>Advice</p>
+  </div>
+  </div>
+ <!-- /container -->
+<div class="container">
+<h2>Latest News</h2>
 
-		<?php
-		if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
 
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs">','</p>
+            ');
+        }
+			?>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+<?php 
+			// the query
+			$the_query = new WP_Query( array('post_type' => 'news', 'posts_per_page' => 12) ); ?>
 
-			endwhile;
+			<?php if ( $the_query->have_posts() ) : ?>
 
-			the_posts_navigation();
+				<div class="row">
+						
+					<!-- the loop -->
+					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-		else :
+					<div class="col-sm-6 col-md-4">
+						<div class="news-item">
+							<a class="thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+							<?php the_post_thumbnail('post-thumbnail', ['class' => 'img-responsive responsive--full', 'title' => 'Feature image']); ?>
+							</a>
+							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+							<?php the_excerpt(); ?>
+							<a href="<?php the_permalink(); ?>" class="btn btn-info">Read More</a>
+						</div>
+					</div>
+					<?php endwhile; ?>
+					<!-- end of the loop -->
 
-			get_template_part( 'template-parts/content', 'none' );
+				</div> <!-- .row -->
+				
 
-		endif; ?>
+				<?php wp_reset_postdata(); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			<?php else : ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+			<?php endif; ?>
+</div>
 
-<?php
-get_sidebar();
-get_footer();
+
+
+<!-- /END THE FEATURETTES -->
+
+
+
+<?php get_footer(); ?>

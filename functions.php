@@ -125,8 +125,11 @@ add_filter('previous_post_link','add_class_previous_post_link',10,1);
 //enqueues our external font awesome stylesheet
 function enqueue_our_required_stylesheets(){
 	wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'); 
+
+	wp_enqueue_style('animate', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'); 
 }
 add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
+
 
 
 
@@ -212,6 +215,10 @@ require get_template_directory() . '/inc/post-types/register-news.php';
 
 //Services Custom Post Type
 require get_template_directory() . '/inc/post-types/register-services.php';
+
+
+
+
 
 function register_services() {
     $rewrite = array(

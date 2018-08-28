@@ -10,7 +10,8 @@ $news = new CPT(array(
     'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt','page-attributes', 'category'),
     'menu_icon' => 'dashicons-testimonial',
     'public' => true,
-    'has_archive' => false
+    'rewrite' => array( 'slug' => 'news' ),
+    'has_archive' => true
 ));
 
 $news->register_taxonomy(array(
@@ -19,3 +20,5 @@ $news->register_taxonomy(array(
     'plural' => __('News Tags', 'jhwd'),
     'slug' => 'news-tag'
 ));
+
+
