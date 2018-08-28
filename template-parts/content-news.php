@@ -9,14 +9,6 @@
 
 ?>
 
-			<?php
-if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('
-<p id="breadcrumbs">','</p>
-');
-}
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
@@ -25,8 +17,17 @@ yoast_breadcrumb('
 			} else {
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			}
+?>
 
-		if ( 'post' === get_post_type() ) : ?>
+			<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs">','</p>
+			');
+			}
+			?>
+
+<?php		if ( 'post' === get_post_type('news') ) : ?>
 		<div class="entry-meta">
 			<?php jhwd_posted_on(); ?>
 		</div><!-- .entry-meta -->

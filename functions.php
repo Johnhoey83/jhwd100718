@@ -206,10 +206,11 @@ require get_template_directory() . '/inc/post-types/CPT.php';
 //Portfolio Custom Post Type
 require get_template_directory() . '/inc/post-types/register-portfolio.php';
 
-//Portfolio Custom Post Type
+//News Custom Post Type
 require get_template_directory() . '/inc/post-types/register-news.php';
 
-//Portfolio Custom Post Type
+
+//Services Custom Post Type
 require get_template_directory() . '/inc/post-types/register-services.php';
 
 function register_services() {
@@ -239,4 +240,6 @@ function register_services() {
     register_post_type( 'services', $args );
 }
 add_action( 'init', 'register_services' );
+
+
 

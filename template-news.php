@@ -1,38 +1,46 @@
 <?php
 /**
- * Template Name: News
  *
+ * Template Name: Homepage
+ *
+ * The template for displaying the homepage.
+ *
+ *
+ * @package jhwd
  */
 
 get_header(); ?>
 
 
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Latest News</h1>
+    <p>Advice</p>
+  </div>
+  </div>
+ <!-- /container -->
 <div class="container">
-	<div class="row">
-
-	<div id="primary" class="col-md-12 col-lg-12">
-		<main id="main" class="site-main news" role="main">
+<h2>Latest News</h2>
 
 
-		<h2>Latest News</h2>
+			<?php
+			if ( function_exists('yoast_breadcrumb') ) {
+			yoast_breadcrumb('
+			<p id="breadcrumbs">','</p>
+            ');
+        }
+			?>
 
-							<?php
-if ( function_exists('yoast_breadcrumb') ) {
-yoast_breadcrumb('
-<p id="breadcrumbs">','</p>
-');
-}
-?>
-			<?php 
+<?php 
 			// the query
-			$the_query = new WP_Query( array('post_type' => 'news') ); ?>
+			$the_query = new WP_Query( array('post_type' => 'news', 'posts_per_page' => 12) ); ?>
 
 			<?php if ( $the_query->have_posts() ) : ?>
 
-				<div class="row">		
+				<div class="row">
+						
 					<!-- the loop -->
 					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
 
 					<div class="col-sm-6 col-md-4">
 						<div class="news-item">
@@ -55,11 +63,12 @@ yoast_breadcrumb('
 			<?php else : ?>
 				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
 			<?php endif; ?>
+</div>
 
-			
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
-	</div><!-- .row -->
-</div><!-- .container -->
+
+<!-- /END THE FEATURETTES -->
+
+
+
 <?php get_footer(); ?>
