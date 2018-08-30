@@ -20,43 +20,43 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
+$font-family-sans-serif: "Open Sans", sans-serif;
+
+
 img.featurette-image.img-fluid.mx-auto.home-feat-img {
-	margin-top: 10%;
-}
-
-
-.container-fluid {
-    padding-left: 0;
-    padding-right: 0;
+	margin-top: 15%;
 }
 
 .container .jumbotron, .container-fluid .jumbotron {
-	background-image: url("/wp-content/uploads/2018/08/technology-1095751_1920.jpg");
-	height: 400px;
+padding-left: 60px;
+    padding-right: 60px;
+    background-color: #006cb7;
 	color: #fff;
-
+	border-radius: 0px;
+	height: 400px;
+	background: linear-gradient(
+                     rgba(0, 108, 183, 0.9), 
+                     rgba(0, 108, 183,0.5)),
+					 url("/wp-content/uploads/2018/08/kha-icon.png");
+	background-repeat:none;
+					 
 	h1 {
 		margin-top: 80px;
-		background: rgba(0, 0, 0, 0.5); /* Black color with 50% alpha/opacity */
-		padding: 2px;
-		width: 75%;
-	}
-
-	p {
-		background: rgba(0, 0, 0, 0.5); /* Black color with 50% alpha/opacity */
-		padding: 2px;
-		width: 300px;
 	}
 }
+
 .featurette {
 	margin-left: 15px;
 	margin-right: 15px;
+	line-height: 2em;
 h3 {
 	color: #006cb7;
 }
 }
 
+
 .main-content {
+	line-height: 2em;
  h2 {
 	color: #006cb7;
  }
@@ -70,12 +70,21 @@ h2.latest-news {
 	color: #006cb7;
 }
 .news-item  {
+	line-height: 2em;
 	h4 {
 	color: #006cb7;
 	}
 	.btn-info {
 		background: #006cb7;
 		border: none;
+	}
+}
+
+.content-area {
+	line-height: 2em;
+	font-size: 1em;
+	h1, h2, h3, h4 {
+		color: #006cb7;
 	}
 }
 

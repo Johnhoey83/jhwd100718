@@ -23,7 +23,7 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header" role="banner">
     <nav role="navigation" id="navbar-main">
-      <div class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="navbar navbar-light" style="border-bottom: 2px solid #e3f2fd;">
         <div class="container">
           <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
           <div class="navbar-header">
@@ -56,5 +56,5 @@
       </div>           
     </nav>
   </header><!-- #masthead -->
-  <div class="container">
+  <div class="container-fluid">
 	<div id="content" class="site-content row">
