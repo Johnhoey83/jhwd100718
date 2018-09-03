@@ -235,7 +235,7 @@ function register_services() {
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
-        'show_in_menu'          => true,
+        'show_in_menu'          => false,
         'menu_position'         => 5,
         'menu_icon'             => 'dashicons-testimonial',
         'show_in_admin_bar'     => true,
@@ -252,4 +252,5 @@ function custom_add_google_fonts() {
 	wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans', false );
 	}
 	add_action( 'wp_enqueue_scripts', 'custom_add_google_fonts' );
+
 

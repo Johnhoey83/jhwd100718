@@ -23,6 +23,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 img.featurette-image.img-fluid.mx-auto.home-feat-img {
   margin-top: 15%; }
 
+.navbar-toggle .icon-bar {
+  background-color: #006cb7; }
+
 .container .jumbotron, .container-fluid .jumbotron {
   padding-left: 60px;
   padding-right: 60px;
@@ -31,7 +34,7 @@ img.featurette-image.img-fluid.mx-auto.home-feat-img {
   border-radius: 0px;
   height: 400px;
   background: linear-gradient(rgba(0, 108, 183, 0.9), rgba(0, 108, 183, 0.5)), url("/wp-content/uploads/2018/08/kha-icon.png");
-  background-repeat: none; }
+  background-repeat: no-repeat; }
   .container .jumbotron h1, .container-fluid .jumbotron h1 {
     margin-top: 80px; }
 

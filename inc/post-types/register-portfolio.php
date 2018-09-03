@@ -8,7 +8,8 @@ $portfolio = new CPT(array(
 ),
 	array(
     'supports' => array('title', 'editor', 'thumbnail', 'comments'),
-    'menu_icon' => 'dashicons-portfolio'
+    'menu_icon' => 'dashicons-portfolio',
+    'show_in_menu' => false
 ));
 
 $portfolio->register_taxonomy(array(
